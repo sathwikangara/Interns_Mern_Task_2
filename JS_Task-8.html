@@ -151,18 +151,15 @@
         document.getElementById('registration-form').addEventListener('submit', function (e) {
             e.preventDefault();
 
-            // Check if all required fields are filled
             const firstname = document.getElementsByName('firstname')[0].value;
-            // Add similar checks for other fields
 
             const agreement = document.getElementsByName('agreement')[0].checked;
 
             if (!firstname || !agreement) {
                 document.getElementById('error-message').textContent = 'Please fill in all required fields.';
             } else {
-                // Form is valid, you can submit it here
                 alert('Registration successful!');
-                this.reset(); // Reset the form
+                this.reset(); 
             }
         });
     </script>
