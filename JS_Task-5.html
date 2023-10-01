@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Task-5</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 5px;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+
+        .error {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <div class="error name"></div>
+        <br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+        <div class="error email"></div>
+        <br>
+        <label for="website">Website Link:</label>
+        <input type="text" id="website" name="website">
+        <div class="error website"></div>
+        <br>
+        <label for="message">Message:</label>
+        <textarea name="message" id="message"></textarea>
+        <div class="error message"></div>
+        <br>
+        <button type="submit">Submit</button>
+    </div>
+    <script>
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const website = document.getElementById('website');
+        const message = document.getElementById('message');
+        const submit = document.querySelector('button');
+        const nameError = document.querySelector('.error.name');
+        const emailError = document.querySelector('.error.email');
+        const websiteError = document.querySelector('.error.website');
+        const messageError = document.querySelector('.error.message');
+        submit.addEventListener('click', (e) => {
+            e.preventDefault();
+            nameError.style.display = 'none';
+            emailError.style.display = 'none';
+            websiteError.style.display = 'none';
+            messageError.style.display = 'none';
+            name.style.border = '1px solid #ccc';
+            email.style.border = '1px solid #ccc';
+            website.style.border = '1px solid #ccc';
+            message.style.border = '1px solid #ccc';
+
+            if(name.value.trim() === ''){
+                nameError.style.display = 'block';
+                nameError.textContent = 'This field is required';
+                name.style.border = '1px solid red';
+            }
+            if(email.value.trim() === ''){
+                emailError.style.display = 'block';
+                emailError.textContent = 'A valid Email address is required';
+                email.style.border = '1px solid red';
+            }
+            if(website.value.trim() === ''){
+                websiteError.style.display = 'block';
+                websiteError.textContent = 'A valid URL is required';
+                website.style.border = '1px solid red';
+            }
+            if(message.value.trim() === ''){
+                messageError.style.display = 'block';
+                messageError.textContent = 'This field is required';
+                message.style.border = '1px solid red';
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Task-8</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #aa2a95;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            padding: 20px;
+        }
+
+        table, td, tr {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th {
+            text-align: right;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .error-message {
+            color: red;
+        }
+
+        .submit-button {
+            display: block;
+            margin: 20px auto;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Form</h1>
+        <form id="registration-form">
+            <table>
+                <tr>
+                    <th><label for="firstname">First Name</label></th>
+                    <td><input type="text" name="firstname" required></td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="lastname">Last Name</label>
+                    </th>
+                    <td> <input type="text" name="lastname"/></td>
+                    </tr>
+                
+                    <tr>
+                        <th><label for name="email">Email</label></th>
+                        <td><input type="email" name="mail"/></td>
+                    </tr>
+                    <tr>
+                        <th><label for name="password">Password</label></td>
+                        <td><input type="password" name="password"/></td>
+                    </tr>
+                    <tr>
+                        <td><label for name="re-enter"></label></td>
+                        <td><input type="password" name="password"/></td>
+                    </tr>
+                    <tr >
+                        <th><label for="gen">Gender</label></th>
+                       <td>  <input type="radio" name="gen" value="male" style="text-align:center;">
+                         <label for="male" >Male</label><hr/>
+                         
+                         <input type="radio" name="gen" value="female">
+                         <label for="female">Female</label></tr>
+                       </td>
+                    </tr>
+                    <tr>
+                        <th> <label for="age">Age</label></th>
+                        <td><input type="number" name="age"></td>
+                    </tr>
+                    <tr>
+                        <th><label for="ph_no">Phone Number</label></th>
+                        <td><input type="tel" name="ph_no"/></td>
+                    </tr>
+                    <tr>
+                        <th><label for="Address">Address<S/label></th>
+                        <td><textarea name="address"></textarea> </td>
+                    </tr>
+                    <tr>
+                        <th><label for="state">State</label></th>
+                        <td><input type="text" name="state"/></td>
+                    </tr>
+                    <tr>
+                        <th><label for="country">Country</label></th>
+                        <td><select name="country">
+                    
+                            <option value="india">INDIA</option>
+                            <option value="usa">USA</option>
+                            <option value="uk">UK</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <th><label for name="lang">Languages Known</label></th>
+                        <td>
+                            <input type="checkbox" name="lang" value="eng">
+                            <label for name="eng">English</label>
+                            <input type="checkbox" name="lang" value="kan">
+                            <label for name="kan">Kannada</label>
+                            <input type="checkbox" name="lang" value="eng">
+                            <label for name="eng">Hindi</label>
+                            <input type="checkbox" name="lang" value="tel">
+                            <label for name="tel">Telugu</label>
+                        </td>
+                
+                    </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="checkbox" name="agreement" required>
+                        Hereby, I declare that all given details are true
+                    </td>
+                </tr>
+            </table>
+            <p class="error-message" id="error-message"></p>
+            <input class="submit-button" type="submit" value="Register">
+        </form>
+        <p style="text-align: center;">Log into <a href="https://ethnus.com/">Ethnus</a> website</p>
+    </div>
+
+    <script>
+        document.getElementById('registration-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Check if all required fields are filled
+            const firstname = document.getElementsByName('firstname')[0].value;
+            // Add similar checks for other fields
+
+            const agreement = document.getElementsByName('agreement')[0].checked;
+
+            if (!firstname || !agreement) {
+                document.getElementById('error-message').textContent = 'Please fill in all required fields.';
+            } else {
+                // Form is valid, you can submit it here
+                alert('Registration successful!');
+                this.reset(); // Reset the form
+            }
+        });
+    </script>
+</body>
+</html>

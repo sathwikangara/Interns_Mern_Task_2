@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Task-7</title>
+    <style>
+        img {
+            position: relative;
+            left: 0;
+        }
+    </style>
+    <script type="text/javascript">
+        var img = null;
+        var isMoving = false;
+        var intervalId = null;
+
+        function init() {
+            img = document.getElementById('myimg');
+        }
+
+        function startMove() {
+            if (!isMoving) {
+                isMoving = true;
+                intervalId = setInterval(moveRight, 100);
+            }
+        }
+
+        function stopMove() {
+            if (isMoving) {
+                isMoving = false;
+                clearInterval(intervalId);
+            }
+        }
+
+        function moveRight() {
+            var currentLeft = parseInt(img.style.left) || 0;
+            img.style.left = (currentLeft + 10) + 'px';
+        }
+
+        window.onload = init;
+    </script>
+</head>
+
+<body>
+    <form>
+        <img id="myimg" src="D:\vscode\MERN Stack\Mern Task-2\img2.jpg" width="200" height="150" />
+        <center>
+            <p>Click the following buttons to handle the animation.</p>
+            <input type="button" value="Start" onclick="startMove();" />
+            <input type="button" value="Stop" onclick="stopMove();" />
+        </center>
+    </form>
+</body>
+</html>

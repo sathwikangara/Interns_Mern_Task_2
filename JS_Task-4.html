@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Task-4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        button {
+            font-size: 18px;
+            padding: 5px 10px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #date, #time {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Date and Time</h1>
+    <button onclick="displayDate()">Display Date</button>
+    <button onclick="displayTime()">Display Time</button>
+    <div id="date"></div>
+    <div id="time"></div>
+
+    <script>
+        function displayDate() {
+            const now = new Date();
+            const dateElement = document.getElementById('date');
+            
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateStr = now.toLocaleDateString('en-US', options);
+
+            dateElement.innerText = `Date: ${dateStr}`;
+            document.getElementById('time').innerText = ''; // Clear the time display
+        }
+
+        function displayTime() {
+            const now = new Date();
+            const timeElement = document.getElementById('time');
+            
+            const timeStr = now.toLocaleTimeString('en-US');
+
+            timeElement.innerText = `Time: ${timeStr}`;
+            document.getElementById('date').innerText = ''; // Clear the date display
+        }
+    </script>
+</body>
+</html>
